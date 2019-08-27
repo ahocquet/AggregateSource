@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using AggregateSource.Content.ExplicitRouting;
 
 namespace AggregateSource.NEventStore.Framework.Snapshots
 {
