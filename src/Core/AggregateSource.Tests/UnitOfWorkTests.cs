@@ -1,7 +1,8 @@
 ﻿using System;
+using AggregateSource.Content.ExplicitRouting;
 using NUnit.Framework;
 
-namespace AggregateSource
+namespace AggregateSource.Tests
 {
     namespace UnitOfWorkTests
     {

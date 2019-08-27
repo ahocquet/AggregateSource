@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AggregateSource
+namespace AggregateSource.Content.ExplicitRouting
 {
     /// <summary>
     /// Base class for aggregate root entities that need some basic infrastructure for tracking state changes.

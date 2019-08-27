@@ -1,9 +1,10 @@
-﻿#if !NET35
-using System;
+﻿
 using System.Linq;
 using NUnit.Framework;
+#if !NET35
+using System;
 
-namespace AggregateSource
+namespace AggregateSource.Tests
 {
     namespace ConcurrentUnitOfWorkTests
     {

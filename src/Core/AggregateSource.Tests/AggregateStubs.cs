@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AggregateSource
+namespace AggregateSource.Tests
 {
     public static class AggregateStubs
     {

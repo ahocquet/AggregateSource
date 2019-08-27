@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AggregateSource
+namespace AggregateSource.Content.ExplicitRouting
 {
     /// <summary>
     /// Base class for aggregate entities that need some basic infrastructure for tracking state changes on their aggregate root entity.

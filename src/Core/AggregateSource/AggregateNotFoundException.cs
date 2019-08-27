@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Globalization;
 using System.Runtime.Serialization;
-using AggregateSource.Properties;
 
 namespace AggregateSource
 {
@@ -24,13 +22,11 @@ namespace AggregateSource
         public AggregateNotFoundException(string identifier, Type clrType)
             : base(
                 clrType != null && identifier != null
-                    ? string.Format(CultureInfo.InvariantCulture, Resources.AggregateNotFoundException_DefaultMessage, clrType.Name, identifier)
+                    ? $"The {clrType.Name} aggregate with identifier {identifier} could not be found. Please make sure the call site is indeed passing in an identifier for an {clrType.Name} aggregate."
                     : null)
         {
-            if (identifier == null) throw new ArgumentNullException("identifier");
-            if (clrType == null) throw new ArgumentNullException("clrType");
-            _identifier = identifier;
-            _clrType = clrType;
+            _identifier = identifier ?? throw new ArgumentNullException(nameof(identifier));
+            _clrType = clrType ?? throw new ArgumentNullException(nameof(clrType));
         }
 
         /// <summary>
@@ -43,10 +39,8 @@ namespace AggregateSource
         public AggregateNotFoundException(string identifier, Type clrType, string message)
             : base(message)
         {
-            if (identifier == null) throw new ArgumentNullException("identifier");
-            if (clrType == null) throw new ArgumentNullException("clrType");
-            _identifier = identifier;
-            _clrType = clrType;
+            _identifier = identifier ?? throw new ArgumentNullException(nameof(identifier));
+            _clrType = clrType ?? throw new ArgumentNullException(nameof(clrType));
         }
 
         /// <summary>
@@ -60,10 +54,8 @@ namespace AggregateSource
         public AggregateNotFoundException(string identifier, Type clrType, string message, Exception innerException)
             : base(message, innerException)
         {
-            if (identifier == null) throw new ArgumentNullException("identifier");
-            if (clrType == null) throw new ArgumentNullException("clrType");
-            _identifier = identifier;
-            _clrType = clrType;
+            _identifier = identifier ?? throw new ArgumentNullException(nameof(identifier));
+            _clrType = clrType ?? throw new ArgumentNullException(nameof(clrType));
         }
 
         /// <summary>
@@ -100,10 +92,7 @@ namespace AggregateSource
         /// <value>
         /// The aggregate id.
         /// </value>
-        public string Identifier
-        {
-            get { return _identifier; }
-        }
+        public string Identifier => _identifier;
 
         /// <summary>
         /// Gets the <see cref="System.Type">ClrType</see> of the aggregate root entity.
@@ -111,9 +100,6 @@ namespace AggregateSource
         /// <value>
         /// The ClrType of the aggregate root entity, or <c>null</c> if type not found.
         /// </value>
-        public Type ClrType
-        {
-            get { return _clrType; }
-        }
+        public Type ClrType => _clrType;
     }
 }

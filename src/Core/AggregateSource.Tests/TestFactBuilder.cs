@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace AggregateSource
+namespace AggregateSource.Tests
 {
     class TestFactBuilder
     {
